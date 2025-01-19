@@ -15,6 +15,6 @@ export const Pages: CollectionConfig = {
       name: "content",
       type: "richText",
     },
-    slugField,
+    slugField(),
   ],
 };
