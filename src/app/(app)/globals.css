@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@utility display-1 {
+	@apply font-bold text-[4.5rem] leading-tight;
+}
+
+@utility display-2 {
+	@apply font-bold text-[2.5rem] leading-tight;
+}
 
 @layer base {
 	* {
@@ -9,15 +15,5 @@
 
 	body {
 		overflow-x: hidden;
-	}
-}
-
-@layer utilities {
-	.display-1 {
-		@apply font-bold text-[4.5rem] leading-tight
-	}
-
-	.display-2 {
-		@apply font-bold text-[2.5rem] leading-tight
 	}
 }
