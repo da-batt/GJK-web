@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	* {
+		font-size: 18px;
+	}
+
+	body {
+		overflow-x: hidden;
+	}
+}
+
+@layer utilities {
+	.display-1 {
+		@apply font-bold text-[4.5rem] leading-tight
+	}
+
+	.display-2 {
+		@apply font-bold text-[2.5rem] leading-tight
+	}
+}
