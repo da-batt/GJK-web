@@ -30,7 +30,9 @@ export default async function Home() {
                 >
                   <div className="h-72 relative">
                     <Image
-                      src={thumbnail.url}
+                      src={
+                        thumbnail.url ?? "https://imageplaceholder.net/600x400"
+                      }
                       alt={thumbnail.alt}
                       fill
                       className="object-center object-cover w-full rounded-2xl"
