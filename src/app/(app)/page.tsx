@@ -5,6 +5,7 @@ import config from "@payload-config";
 import Image from "next/image";
 import { Media } from "@/payload-types";
 import Link from "next/link";
+import { parseRichText } from "@/lib/utils";
 
 export default async function Home() {
   const payload = await getPayload({ config });
@@ -42,7 +43,7 @@ export default async function Home() {
                     <p>
                       <Ellipsis
                         wordLimit={75}
-                        text={parseRichText(post.content)}
+                        text={parseRichText(post.content.root)}
                       />
                     </p>
                     <div />
@@ -55,26 +56,6 @@ export default async function Home() {
       </main>
     </div>
   );
-}
-
-function parseRichText(richText: any): string {
-  if (richText.root && richText.root.children) {
-    richText = richText.root;
-  }
-
-  if (richText.children) {
-    return richText.children
-      .map((block: any) => {
-        if (block.children) {
-          return parseRichText(block);
-        }
-
-        return block.text || "";
-      })
-      .join("");
-  }
-
-  return "";
 }
 
 const Ellipsis = ({ text, wordLimit }: { text: string; wordLimit: number }) => {
