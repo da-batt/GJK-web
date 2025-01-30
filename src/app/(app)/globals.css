@@ -1,11 +1,15 @@
 @import 'tailwindcss';
 
 @utility display-1 {
-	@apply font-bold text-[4.5rem] leading-tight;
+	@apply font-bold text-[92px] leading-tight;
 }
 
 @utility display-2 {
-	@apply font-bold text-[2.5rem] leading-tight;
+	@apply font-bold text-[60px] leading-tight;
+}
+
+@utility display-3 {
+	@apply text-[40px] leading-tight;
 }
 
 @layer base {
@@ -15,5 +19,13 @@
 
 	body {
 		overflow-x: hidden;
+	}
+
+	a {
+		@apply hover:underline decoration-2
+	}
+
+	hr {
+		border-width: 1px;
 	}
 }
