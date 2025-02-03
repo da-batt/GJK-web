@@ -1,6 +1,45 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+interface HeroCard {
+  id: number;
+  title: string;
+  content: string;
+  imageUrl: string;
+}
+
+const cards: HeroCard[] = [
+  {
+    id: 1,
+    title: "Svoboda",
+    content:
+      "Dáváme studentům prostor pro vlastní nápady, projekty a akce. Učí se tím nejen tvořit, ale i spolupracovat a rozvíjet měkké dovednosti v přirozeném prostředí vrstevnického učení.",
+    imageUrl: "https://placehold.co/600x400?text=Svoboda",
+  },
+  {
+    id: 2,
+    title: "Odpovědnost",
+    content:
+      "Se svobodou a důvěrou, kterých se našim studentů dostává, jde ruku v ruce i odpovědnost. Té se naši studenti učí praxí a někdy i skrze chyby.",
+    imageUrl: "/hero/people3.jpeg",
+  },
+  {
+    id: 3,
+    title: "Respekt",
+    content:
+      "Budujeme prostředí, kde se každý cítí bezpečně a jeho názor je slyšen. Respektující komunikace a přístup jsou základním pilířem kultury školy.",
+    imageUrl: "/hero/people2.jpeg",
+  },
+  {
+    id: 4,
+    title: "Odvaha",
+    content:
+      "Vedeme studenty k odvaze překročit své limity, zkoušet nové věci a pracovat na svých slabinách. Podporujeme i jejich občanskou odpovědnost a snahu měnit svět kolem sebe k lepšímu.",
+    imageUrl: "/hero/people1.jpeg",
+  },
+];
+
 export const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -8,29 +47,42 @@ export const Hero = () => {
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const transitionDuration = 2000;
+  const displayDuration = 5000;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+    }, displayDuration + transitionDuration);
+
+    return () => clearInterval(interval);
+  }, [cards.length, displayDuration, transitionDuration]);
+
   return (
     <section>
-      <div
-        className="h-[36em] flex items-end p-8 relative rounded-2xl overflow-hidden"
-        ref={ref}
-      >
-        <motion.div
-          className="bg-[url(/hero/people1.jpeg)] absolute top-0 left-0 w-full h-full bg-cover bg-center scale-115"
-          style={{
-            y,
-          }}
-          ref={ref}
-        ></motion.div>
-        <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
-        <div className="z-10 text-white max-w-[50%]">
-          <h1 className="display-1">Odvaha</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
+      <div className="h-[36em] relative rounded-2xl overflow-hidden" ref={ref}>
+        {cards.map((card, index) => (
+          <div
+            className={`absolute inset-0 p-8 flex items-end transition-opacity duration-2000 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
+            key={index}
+          >
+            <motion.div
+              className="absolute inset-0 w-full h-full bg-cover bg-center scale-115"
+              style={{
+                backgroundImage: `url(${card.imageUrl})`,
+                y,
+              }}
+              ref={ref}
+            ></motion.div>
+            <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
+            <div className="z-10 text-white max-w-[50%]">
+              <h1 className="display-1">{card.title}</h1>
+              <p>{card.content}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
