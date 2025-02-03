@@ -62,7 +62,10 @@ export const Hero = () => {
 
   return (
     <section>
-      <div className="h-[36em] relative rounded-2xl overflow-hidden" ref={ref}>
+      <div
+        className="min-h-[36em] h-[60vh] relative rounded-2xl overflow-hidden"
+        ref={ref}
+      >
         {cards.map((card, index) => (
           <div
             className={`absolute inset-0 p-8 flex items-end transition-opacity duration-2000 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
@@ -77,7 +80,7 @@ export const Hero = () => {
               ref={ref}
             ></motion.div>
             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
-            <div className="z-10 text-white max-w-[50%]">
+            <div className="z-10 text-white lg:max-w-[50%]">
               <h1 className="display-1">{card.title}</h1>
               <p>{card.content}</p>
             </div>

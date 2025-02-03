@@ -13,7 +13,7 @@ export default async function Home() {
     .find({ limit: 3, collection: "posts" })
     .then((res) => res.docs);
   return (
-    <div className="px-28">
+    <>
       <Header />
       <main>
         <Hero />
@@ -26,9 +26,9 @@ export default async function Home() {
               return (
                 <article
                   key={post.id}
-                  className="grid gap-8 grid-cols-[28em_auto] h-72"
+                  className="flex flex-col gap-4 lg:grid lg:gap-8 lg:grid-cols-[28em_auto]"
                 >
-                  <div className="h-72 relative">
+                  <div className="h-96 md:h-72 relative">
                     <Image
                       src={
                         thumbnail.url ?? "https://imageplaceholder.net/600x400"
@@ -42,7 +42,7 @@ export default async function Home() {
                     <Link href={`/aktuality/${post.id}`}>
                       <h3 className="display-3 mb-2">{post.title}</h3>
                     </Link>
-                    <p>
+                    <p className="hidden lg:block">
                       <Ellipsis
                         wordLimit={75}
                         text={parseRichText(post.content.root)}
@@ -56,7 +56,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
-    </div>
+    </>
   );
 }
 

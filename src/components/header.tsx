@@ -15,7 +15,7 @@ export default function Header() {
           className="h-auto w-[150px]"
         />
       </Link>
-      <NavigationMenu className="flex items-center gap-8 list-none">
+      <NavigationMenu className="hidden lg:flex items-center gap-8 list-none">
         <NavigationMenuItem>O škole</NavigationMenuItem>
         <NavigationMenuItem>Pro studenty</NavigationMenuItem>
         <NavigationMenuItem>Pro uchazeče</NavigationMenuItem>
