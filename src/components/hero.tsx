@@ -15,7 +15,7 @@ const cards: HeroCard[] = [
     title: "Svoboda",
     content:
       "Dáváme studentům prostor pro vlastní nápady, projekty a akce. Učí se tím nejen tvořit, ale i spolupracovat a rozvíjet měkké dovednosti v přirozeném prostředí vrstevnického učení.",
-    imageUrl: "https://placehold.co/600x400?text=Svoboda",
+    imageUrl: "/hero/people4.jpeg",
   },
   {
     id: 2,
