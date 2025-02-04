@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lexend } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const lexend = Lexend({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Gymnázium Jana Keplera",
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-28`}
+        className={`${lexend.className} max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-28`}
       >
         {children}
         <Footer />
