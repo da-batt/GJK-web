@@ -6,12 +6,14 @@ import Image from "next/image";
 import { Media } from "@/payload-types";
 import Link from "next/link";
 import { parseRichText } from "@/lib/utils";
+import { unstable_cache } from "next/cache";
 
 export default async function Home() {
-  const payload = await getPayload({ config });
-  const posts = await payload
-    .find({ limit: 3, collection: "posts" })
-    .then((res) => res.docs);
+  const getCachedPosts = unstable_cache(fetchPosts, ["posts"], {
+    tags: ["posts"],
+  });
+  const posts = await getCachedPosts();
+
   return (
     <>
       <Header />
@@ -64,4 +66,11 @@ const Ellipsis = ({ text, wordLimit }: { text: string; wordLimit: number }) => {
   const wordCount = text.split(" ").length;
   if (wordCount < wordLimit) return <>{text}</>;
   return <>{text.split(" ", wordLimit).join(" ").concat(" ...")}</>;
+};
+
+const fetchPosts = async () => {
+  const payload = await getPayload({ config });
+  return await payload
+    .find({ limit: 3, collection: "posts" })
+    .then((res) => res.docs);
 };

@@ -1,3 +1,4 @@
+import { revalidateTag } from "next/cache";
 import type { CollectionConfig } from "payload";
 
 export const Posts: CollectionConfig = {
@@ -23,4 +24,8 @@ export const Posts: CollectionConfig = {
       required: true,
     },
   ],
+  hooks: {
+    afterChange: [() => revalidateTag("posts")],
+    afterDelete: [() => revalidateTag("posts")],
+  },
 };
