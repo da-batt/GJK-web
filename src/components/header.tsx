@@ -1,35 +1,80 @@
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
+  NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
 
 export default function Header() {
   return (
-    <header className="py-6 flex items-center justify-between">
+    <header className="py-5 flex items-center justify-between container">
       <Link href="/">
         <img
           src="/logo.svg"
           alt="Gymnázium Jana Keplera"
-          className="h-auto w-[150px]"
+          className="h-auto w-[140px]"
         />
       </Link>
       <NavigationMenu className="hidden lg:flex items-center gap-8 list-none">
-        <NavigationMenuItem>O škole</NavigationMenuItem>
-        <NavigationMenuItem>Pro studenty</NavigationMenuItem>
-        <NavigationMenuItem>Pro uchazeče</NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="/galerie">Galerie</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="/aktuality">Aktuality</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {sitemap.map((nav) => {
+          if (nav.children) {
+            return (
+              <NavigationMenuItem className="font-medium tracking-wider">
+                <NavigationMenuTrigger className="inline-flex items-center gap-1">
+                  {navlink(nav)}
+                  <ChevronDown className="h-[1.2rem]" />
+                </NavigationMenuTrigger>
+              </NavigationMenuItem>
+            );
+          } else {
+            return (
+              <NavigationMenuItem className="font-medium tracking-wider">
+                {navlink(nav)}
+              </NavigationMenuItem>
+            );
+          }
+        })}
       </NavigationMenu>
     </header>
   );
 }
+
+const navlink = (nav: NavLink) =>
+  nav.href ? (
+    <NavigationMenuLink asChild>
+      <Link href={nav.href}>{nav.name}</Link>
+    </NavigationMenuLink>
+  ) : (
+    nav.name
+  );
+
+type NavLink = {
+  name: string;
+  href?: string;
+  children?: NavLink[];
+};
+
+const sitemap: NavLink[] = [
+  {
+    name: "O škole",
+    children: [],
+  },
+  {
+    name: "Pro studenty",
+    children: [],
+  },
+  {
+    name: "Pro uchazeče",
+    children: [],
+  },
+  {
+    name: "Galerie",
+    href: "/galerie",
+  },
+  {
+    name: "Aktuality",
+    href: "/aktuality",
+  },
+];

@@ -1,28 +1,54 @@
 @import 'tailwindcss';
 
+@theme {
+	--color-black: #111111;
+	--color-neutral-100: #F7F7F7;
+
+	--text-*: initial;
+	--text-base: 1rem;
+	--text-lg: 1.414rem;
+	--text-xl: 2rem;
+	--text-2xl: 2.827rem;
+	--text-3xl: 4rem;
+	--text-4xl: 5.653rem;
+	--text-5xl: 8rem;
+}
+
 @utility display-1 {
-	@apply font-bold text-[92px] leading-tight;
+	line-height: 105%;
+	letter-spacing: -2%;
+	@apply text-4xl font-semibold;
 }
 
 @utility display-2 {
-	@apply font-bold text-[60px] leading-tight;
+	@apply font-semibold text-3xl leading-tight;
 }
 
 @utility display-3 {
-	@apply text-[40px] leading-tight;
+	@apply font-semibold text-2xl leading-tight;
+}
+
+@utility display-4 {
+	@apply font-semibold text-xl leading-tight;
+}
+
+@utility container {
+	@apply max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-12;
+}
+
+@utility button {
+	@apply rounded-full bg-black text-white py-2 px-4 uppercase font-medium items-center gap-4
 }
 
 @layer base {
 	* {
 		font-size: 18px;
+		line-height: 1.5;
 	}
 
 	body {
 		overflow-x: hidden;
-	}
-
-	a {
-		@apply hover:underline decoration-2
+		color: var(--color-black)
 	}
 
 	hr {

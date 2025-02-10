@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/footer";
 
-const lexend = Lexend({ subsets: ["latin"] });
+const switzer = localFont({ src: "./fonts/Switzer-Variable.woff2" });
 
 export const metadata: Metadata = {
   title: "Gymnázium Jana Keplera",
@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${lexend.className} max-w-screen-2xl mx-auto px-4 md:px-8 xl:px-28`}
-      >
+      <body className={`${switzer.className}`}>
         {children}
         <Footer />
       </body>

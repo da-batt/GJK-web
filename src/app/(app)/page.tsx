@@ -3,10 +3,13 @@ import Hero from "@/components/hero";
 import { getPayload } from "payload";
 import config from "@payload-config";
 import Image from "next/image";
-import { Media } from "@/payload-types";
 import Link from "next/link";
-import { parseRichText } from "@/lib/utils";
 import { unstable_cache } from "next/cache";
+import hladkov from "~/about/gjk-hladkov.jpg";
+import interier from "~/about/prazdne-gjk.jpg";
+import { ArrowRightIcon } from "lucide-react";
+import { Button } from "@/components/button";
+import { FadeIn } from "@/components/animations";
 
 export default async function Home() {
   const getCachedPosts = unstable_cache(fetchPosts, ["posts"], {
@@ -17,42 +20,62 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="container">
         <Hero />
-        <section className="py-24">
-          <h2 className="display-2">Aktuality</h2>
-          <hr className="mt-2 mb-8" />
-          <div className="flex flex-col gap-8">
-            {posts.map((post) => {
-              const thumbnail = post.thumbnail as Media;
+        <section className="pt-32 grid grid-cols-[3fr_5fr] gap-x-28 gap-y-56 pb-32">
+          <h2 className="uppercase text-lg font-semibold tracking-wider">
+            Naše mise
+          </h2>
+          <div>
+            <p className="text-xl mb-12 leading-snug">
+              Gymnázium Jana Keplera v Praze patří mezi prestižní školy s
+              důrazem na kritické myšlení a tvůrčí výuku. Nabízíme osmileté i
+              čtyřleté studium a vynikáme kvalitním vzděláním i přátelskou
+              atmosférou.
+            </p>
+            <Button asChild>
+              <Link href="/mise">
+                Zjistit více <ArrowRightIcon />
+              </Link>
+            </Button>
+          </div>
+          <Image
+            src={hladkov}
+            alt=""
+            className="rounded-2xl object-cover h-[28em]"
+          />
+          <Image
+            src={interier}
+            alt=""
+            className="rounded-2xl object-cover h-[40em]"
+          />
+        </section>
+        <section className="pt-16 pb-32">
+          <div className="flex justify-between items-end mb-6">
+            <h2 className="display-2">Aktuality</h2>
+            <Button asChild>
+              <Link href="/aktuality">
+                Všechny aktuality
+                <ArrowRightIcon />
+              </Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-3 gap-10">
+            {posts.map((post, index) => {
               return (
-                <article
-                  key={post.id}
-                  className="flex flex-col gap-4 lg:grid lg:gap-8 lg:grid-cols-[28em_auto]"
-                >
-                  <div className="h-96 md:h-72 relative">
-                    <Image
-                      src={
-                        thumbnail.url ?? "https://imageplaceholder.net/600x400"
-                      }
-                      alt={thumbnail.alt}
-                      fill
-                      className="object-center object-cover w-full rounded-2xl"
-                    />
-                  </div>
-                  <div>
-                    <Link href={`/aktuality/${post.id}`}>
-                      <h3 className="display-3 mb-2">{post.title}</h3>
-                    </Link>
-                    <p className="hidden lg:block">
-                      <Ellipsis
-                        wordLimit={75}
-                        text={parseRichText(post.content.root)}
+                <FadeIn delay={0.2 * index} asChild>
+                  <article key={post.id}>
+                    <div className="relative aspect-square mb-2">
+                      <Image
+                        src={post.thumbnail.url}
+                        alt={post.thumbnail.alt}
+                        fill
+                        className="object-cover rounded-xl"
                       />
-                    </p>
-                    <div />
-                  </div>
-                </article>
+                    </div>
+                    <h1 className="text-lg font-medium">{post.title}</h1>
+                  </article>
+                </FadeIn>
               );
             })}
           </div>
@@ -61,12 +84,6 @@ export default async function Home() {
     </>
   );
 }
-
-const Ellipsis = ({ text, wordLimit }: { text: string; wordLimit: number }) => {
-  const wordCount = text.split(" ").length;
-  if (wordCount < wordLimit) return <>{text}</>;
-  return <>{text.split(" ", wordLimit).join(" ").concat(" ...")}</>;
-};
 
 const fetchPosts = async () => {
   const payload = await getPayload({ config });
