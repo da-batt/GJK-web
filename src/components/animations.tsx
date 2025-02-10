@@ -7,6 +7,8 @@ interface FadeInProps {
   children: ReactNode;
   delay?: number;
   once?: boolean;
+  whileInView?: boolean;
+  viewportAmount?: number;
   asChild?: boolean;
 }
 
@@ -14,7 +16,9 @@ export const FadeIn: React.FC<FadeInProps> = ({
   children,
   delay = 0,
   once = true,
+  whileInView = false,
   asChild = false,
+  viewportAmount = 0.5,
 }) => {
   const Component = asChild ? motion(Slot) : motion.div;
   return (
@@ -25,8 +29,8 @@ export const FadeIn: React.FC<FadeInProps> = ({
         delay,
       }}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount: 0.5 }}
+      {...(whileInView ? { whileInView: "visible" } : { animate: "visible" })}
+      viewport={{ once, amount: viewportAmount }}
       variants={{
         visible: { opacity: 1, translateY: 0 },
         hidden: { opacity: 0, translateY: "0.5rem" },
