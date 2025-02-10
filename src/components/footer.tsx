@@ -17,44 +17,8 @@ const Footer = () => {
           <p>gjk@gjk.cz</p>
         </a>
       </div>
-      <div>
-        {sitemap.map((col) => (
-          <div>
-            <span>{col.name}</span>
-            <ul>{}</ul>
-          </div>
-        ))}
-      </div>
     </footer>
   );
 };
 
 export default Footer;
-
-const sitemap: FooterNavColumn[] = [
-  {
-    name: "O škole",
-    children: [
-      { name: "Pedagogický sbor", href: "/pedagogicky-sbor" },
-      { name: "Dokumenty", href: "/dokumenty" },
-      { name: "Akce", href: "/akce" },
-    ],
-  },
-  {
-    name: "Pro studenty",
-    children: [{ name: "Volitelné předměty", href: "/" }],
-  },
-  {
-    name: "Pro uchazeče",
-    children: [
-      { name: "Přijmací řízení", href: "/prijmaci-rizeni" },
-      { name: "Dny otevřených dveří", href: "/dny-otevrenych-dveri" },
-      { name: "Přestup na GJK", href: "/prestup-na-gjk" },
-    ],
-  },
-];
-
-type FooterNavColumn = {
-  name: string;
-  children: { name: string; href: string }[];
-};

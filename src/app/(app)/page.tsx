@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import Hero from "@/components/hero";
 import { getPayload } from "payload";
 import config from "@payload-config";
@@ -10,6 +9,7 @@ import interier from "~/about/prazdne-gjk.jpg";
 import { ArrowRightIcon } from "lucide-react";
 import { Button } from "@/components/button";
 import { FadeIn } from "@/components/animations";
+import { Media } from "@/payload-types";
 
 export default async function Home() {
   const getCachedPosts = unstable_cache(
@@ -69,13 +69,14 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-3 gap-10">
           {posts.map((post, index) => {
+            const thumbnail = post.thumbnail as Media;
             return (
-              <FadeIn delay={0.2 * index} asChild whileInView>
-                <article key={post.id}>
+              <FadeIn key={post.id} delay={0.2 * index} asChild whileInView>
+                <article>
                   <div className="relative aspect-square mb-2">
                     <Image
-                      src={post.thumbnail.url}
-                      alt={post.thumbnail.alt}
+                      src={thumbnail.url ?? "https://placehold.co/600x400"}
+                      alt={thumbnail.alt}
                       fill
                       className="object-cover rounded-xl"
                     />

@@ -6,13 +6,15 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
+import Image from "next/image";
+import logo from "~/logo.svg";
 
 export default function Header() {
   return (
     <header className="py-5 flex items-center justify-between container">
       <Link href="/">
-        <img
-          src="/logo.svg"
+        <Image
+          src={logo}
           alt="Gymnázium Jana Keplera"
           className="h-auto w-[140px]"
         />
@@ -21,7 +23,10 @@ export default function Header() {
         {sitemap.map((nav) => {
           if (nav.children) {
             return (
-              <NavigationMenuItem className="font-medium tracking-wider">
+              <NavigationMenuItem
+                key={nav.name}
+                className="font-medium tracking-wider"
+              >
                 <NavigationMenuTrigger className="inline-flex items-center gap-1">
                   {navlink(nav)}
                   <ChevronDown className="h-[1.2rem]" />
@@ -30,7 +35,10 @@ export default function Header() {
             );
           } else {
             return (
-              <NavigationMenuItem className="font-medium tracking-wider">
+              <NavigationMenuItem
+                key={nav.name}
+                className="font-medium tracking-wider"
+              >
                 {navlink(nav)}
               </NavigationMenuItem>
             );

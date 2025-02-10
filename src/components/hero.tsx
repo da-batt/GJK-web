@@ -21,7 +21,7 @@ export const Hero = () => {
     }, displayDuration + transitionDuration);
 
     return () => clearInterval(interval);
-  }, [cards.length, displayDuration, transitionDuration]);
+  }, [displayDuration, transitionDuration]);
 
   return (
     <section>
@@ -37,7 +37,7 @@ export const Hero = () => {
       >
         {cards.map((card, index) => (
           <div
-            className={`duration-500 absolute inset-0 p-6 md:p-10 flex items-end justify-between transition-opacity duration-2000 ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
+            className={`duration-500 absolute inset-0 p-6 md:p-10 flex items-end justify-between transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
             key={index}
           >
             <motion.div
