@@ -36,9 +36,10 @@ export default async function Home() {
         </h2>
         <div>
           <p className="text-xl mb-12 leading-snug">
-            Gymnázium Jana Keplera v Praze patří mezi prestižní školy s důrazem
-            na kritické myšlení a tvůrčí výuku. Nabízíme osmileté i čtyřleté
-            studium a vynikáme kvalitním vzděláním i přátelskou atmosférou.
+            Naší misí je připravit studenty na život v rychle se měnícím světě
+            prostřednictvím kvalitního vzdělání, které propojuje znalosti,
+            dovednosti a hodnoty. Škola rozvíjí kritické myšlení, tvořivost a
+            zodpovědný přístup k informacím i technologiím.
           </p>
           <Button asChild>
             <Link href="/mise">
