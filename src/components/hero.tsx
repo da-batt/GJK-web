@@ -26,14 +26,13 @@ export const Hero = () => {
   return (
     <section>
       <motion.div
-        className="min-h-[40em] h-[60vh] relative rounded-2xl overflow-hidden"
+        className="min-h-[75vh] h-[40em] relative rounded-2xl overflow-hidden"
         ref={ref}
         initial={{
-          width: "40%",
           opacity: 0,
         }}
-        animate={{ width: "100%", opacity: 1 }}
-        transition={{ duration: 0.5, ease: "circOut" }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         {cards.map((card, index) => (
           <div
