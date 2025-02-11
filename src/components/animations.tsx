@@ -20,7 +20,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   asChild = false,
   viewportAmount = 0.5,
 }) => {
-  const Component = asChild ? motion(Slot) : motion.div;
+  const Component = asChild ? motion.create(Slot) : motion.div;
   return (
     <Component
       transition={{
