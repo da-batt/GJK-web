@@ -10,10 +10,12 @@ export const Pages: CollectionConfig = {
     {
       name: "title",
       type: "text",
+      required: true,
     },
     {
       name: "content",
       type: "richText",
+      required: true,
     },
     slugField(),
   ],

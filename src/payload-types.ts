@@ -130,8 +130,8 @@ export interface Post {
  */
 export interface Page {
   id: number;
-  title?: string | null;
-  content?: {
+  title: string;
+  content: {
     root: {
       type: string;
       children: {
@@ -145,7 +145,7 @@ export interface Page {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
+  };
   slug?: string | null;
   updatedAt: string;
   createdAt: string;

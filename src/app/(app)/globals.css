@@ -31,7 +31,7 @@
 }
 
 @utility display-4 {
-	@apply font-semibold text-xl leading-tight;
+	@apply font-semibold text-xl leading-snug;
 }
 
 @utility container {
@@ -55,5 +55,21 @@
 
 	hr {
 		border-width: 1px;
+	}
+}
+
+.payload-richtext {
+	a {
+		text-decoration: underline;
+		color: blue
+	}
+
+	ul {
+		list-style-type: disc;
+		list-style-position: inside;
+	}
+
+	h1 {
+		@apply display-4
 	}
 }
