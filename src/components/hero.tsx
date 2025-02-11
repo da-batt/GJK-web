@@ -12,7 +12,7 @@ export const Hero = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const transitionDuration = 500;
+  const transitionDuration = 2000;
   const displayDuration = 5000;
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const Hero = () => {
       >
         {cards.map((card, index) => (
           <div
-            className={`duration-500 absolute inset-0 p-6 md:p-10 flex items-end justify-between transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
+            className={`duration-2000 absolute inset-0 p-6 md:p-10 flex items-end justify-between transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
             key={index}
           >
             <motion.div
