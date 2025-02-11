@@ -3,8 +3,10 @@
 @theme {
 	--color-black: #111111;
 	--color-neutral-100: #F7F7F7;
+	--color-neutral-900: #989898;
 
 	--text-*: initial;
+	--text-sm: 0.8rem;
 	--text-base: 1rem;
 	--text-lg: 1.414rem;
 	--text-xl: 2rem;

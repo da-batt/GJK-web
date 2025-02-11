@@ -1,3 +1,7 @@
+import type { ClassValue } from "clsx";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 type RichTextBlock = {
   [k: string]: unknown;
   children?: RichTextBlock[];
@@ -19,3 +23,7 @@ export function parseRichText(richText: RichTextBlock): string {
 
   return "";
 }
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
+};

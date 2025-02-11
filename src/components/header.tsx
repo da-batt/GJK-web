@@ -8,16 +8,13 @@ import {
 } from "@radix-ui/react-navigation-menu";
 import Image from "next/image";
 import logo from "~/logo.svg";
+import Logo from "./logo";
 
 export default function Header() {
   return (
     <header className="py-5 flex items-center justify-between container">
       <Link href="/">
-        <Image
-          src={logo}
-          alt="Gymnázium Jana Keplera"
-          className="h-auto w-[140px]"
-        />
+        <Logo className="h-auto w-[140px]" />
       </Link>
       <NavigationMenu className="hidden lg:flex items-center gap-8 list-none">
         {sitemap.map((nav) => {
