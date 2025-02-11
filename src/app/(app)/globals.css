@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
+	--color-*: initial;
 	--color-black: #111111;
-	--color-neutral-100: #F7F7F7;
+	--color-neutral-50: #F3F3F3;
+	--color-neutral-100: #E7E7E7;
+	--color-neutral-200: #CFCFCF;
+	--color-neutral-500: #888888;
 	--color-neutral-900: #989898;
+	--color-white: #FFFFFF;
 
 	--text-*: initial;
 	--text-sm: 0.8rem;
@@ -50,7 +55,7 @@
 
 	body {
 		overflow-x: hidden;
-		color: var(--color-black)
+		color: var(--color-black);
 	}
 
 	hr {
