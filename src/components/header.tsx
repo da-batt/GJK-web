@@ -6,8 +6,6 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
-import Image from "next/image";
-import logo from "~/logo.svg";
 import Logo from "./logo";
 
 export default function Header() {
