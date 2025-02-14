@@ -9,6 +9,7 @@ export const slugField = (fieldToUse: string = "title") => {
       readOnly: true,
     },
     index: true,
+    required: true,
     hooks: {
       beforeValidate: [formatSlugHook(fieldToUse)],
     },
