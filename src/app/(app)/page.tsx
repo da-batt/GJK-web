@@ -30,7 +30,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="pt-32 grid grid-cols-[3fr_5fr] gap-x-28 gap-y-56 pb-32">
+      <section className="pt-48 grid grid-cols-[3fr_5fr] gap-x-28 gap-y-56 pb-32">
         <h2 className="uppercase text-lg font-semibold tracking-wider">
           Naše mise
         </h2>
@@ -71,19 +71,24 @@ export default async function Home() {
         <div className="grid grid-cols-3 gap-10">
           {posts.map((post, index) => {
             const thumbnail = post.thumbnail as Media;
+            const thumbnailUrl = thumbnail.sizes?.square?.url;
+            if (!thumbnailUrl)
+              return <div key={post.id}>Failed to load post</div>;
+
             return (
               <FadeIn key={post.id} delay={0.2 * index} asChild whileInView>
-                <article>
-                  <div className="relative aspect-square mb-2">
+                <Link href={`/aktuality/${post.id}`}>
+                  <article>
                     <Image
-                      src={thumbnail.url ?? "https://placehold.co/600x400"}
+                      src={thumbnailUrl}
                       alt={thumbnail.alt}
-                      fill
-                      className="object-cover rounded-xl"
+                      width={600}
+                      height={600}
+                      className="rounded-xl mb-2 w-full h-auto"
                     />
-                  </div>
-                  <h1 className="text-lg font-medium">{post.title}</h1>
-                </article>
+                    <h1 className="text-lg font-medium">{post.title}</h1>
+                  </article>
+                </Link>
               </FadeIn>
             );
           })}

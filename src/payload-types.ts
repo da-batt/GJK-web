@@ -155,6 +155,32 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+  sizes?: {
+    square?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    landscape?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -306,6 +332,40 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+  sizes?:
+    | T
+    | {
+        square?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        landscape?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -370,22 +430,24 @@ export interface Header {
   tabs?:
     | {
         label: string;
-        enableDropdown?: boolean | null;
         enableDirectLink?: boolean | null;
+        enableDropdown?: boolean | null;
         link?: {
           type?: ('internal' | 'custom') | null;
           reference?: (number | null) | Page;
           url?: string | null;
         };
-        links: {
-          link?: {
-            type?: ('internal' | 'custom') | null;
-            reference?: (number | null) | Page;
-            url?: string | null;
-            label?: string | null;
-          };
-          id?: string | null;
-        }[];
+        links?:
+          | {
+              link?: {
+                type?: ('internal' | 'custom') | null;
+                reference?: (number | null) | Page;
+                url?: string | null;
+                label?: string | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
@@ -401,8 +463,8 @@ export interface HeaderSelect<T extends boolean = true> {
     | T
     | {
         label?: T;
-        enableDropdown?: T;
         enableDirectLink?: T;
+        enableDropdown?: T;
         link?:
           | T
           | {

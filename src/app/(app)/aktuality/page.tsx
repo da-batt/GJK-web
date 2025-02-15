@@ -27,19 +27,24 @@ export default async function Page(props: {
       <div className="grid gap-8 mb-8 pt-8" id="col">
         {posts.docs.map((post, index) => {
           const thumbnail = post.thumbnail as Media;
+          const thumbnailUrl = thumbnail.sizes?.card?.url;
+          if (!thumbnailUrl) return <div key={post.id}>Error loading post</div>;
           return (
             <FadeIn asChild delay={0.2 + index * 0.2} key={post.id}>
-              <article className="grid grid-cols-[28em_auto] h-[20em] gap-6">
+              <article className="grid grid-cols-[28em_auto] gap-6">
                 <div className="relative">
                   <Image
-                    src={thumbnail.url ?? "https://placehold.co/600x400"}
+                    src={thumbnailUrl}
                     alt={thumbnail.alt}
-                    fill
-                    className="object-cover rounded-xl"
+                    height={450}
+                    width={600}
+                    className="w-full h-auto rounded-xl"
                   />
                 </div>
                 <div>
-                  <h1 className="text-xl font-semibold">{post.title}</h1>
+                  <Link href={`/aktuality/${post.id}`}>
+                    <h1 className="text-xl font-semibold">{post.title}</h1>
+                  </Link>
                   <p className="text-lg text-ellipsis">
                     {parseRichText(post.content.root).slice(0, 200)}
                   </p>
