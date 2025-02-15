@@ -12,7 +12,7 @@ const Footer = () => {
           <a href="mailto:gjk@gjk.cz">
             <p>gjk@gjk.cz</p>
           </a>
-          <p className="text-sm mt-12 text-neutral-900">
+          <p className="text-sm mt-12 text-neutral-500">
             Zřizovatel: Magistrát hlavního města Prahy
           </p>
         </div>
