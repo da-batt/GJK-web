@@ -56,7 +56,7 @@ export const Hero = () => {
               </FadeIn>
               {index == 0 ? (
                 <FadeIn delay={1.2}>
-                  <h1 className="display-1 text-[143px] leading-none">
+                  <h1 className="display-1 text-5xl leading-none">
                     {card.title}
                   </h1>
                 </FadeIn>
