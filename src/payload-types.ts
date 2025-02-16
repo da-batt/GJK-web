@@ -88,9 +88,11 @@ export interface Config {
   };
   globals: {
     header: Header;
+    footer: Footer;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -432,15 +434,15 @@ export interface Header {
         label: string;
         enableDirectLink?: boolean | null;
         enableDropdown?: boolean | null;
-        link?: {
-          type?: ('internal' | 'custom') | null;
+        link: {
+          type: 'internal' | 'custom';
           reference?: (number | null) | Page;
           url?: string | null;
         };
         links?:
           | {
-              link?: {
-                type?: ('internal' | 'custom') | null;
+              link: {
+                type: 'internal' | 'custom';
                 reference?: (number | null) | Page;
                 url?: string | null;
                 label?: string | null;
@@ -448,6 +450,30 @@ export interface Header {
               id?: string | null;
             }[]
           | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  columns?:
+    | {
+        label: string;
+        links: {
+          link: {
+            type: 'internal' | 'custom';
+            reference?: (number | null) | Page;
+            url?: string | null;
+            label?: string | null;
+          };
+          id?: string | null;
+        }[];
         id?: string | null;
       }[]
     | null;
@@ -472,6 +498,34 @@ export interface HeaderSelect<T extends boolean = true> {
               reference?: T;
               url?: T;
             };
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  columns?:
+    | T
+    | {
+        label?: T;
         links?:
           | T
           | {

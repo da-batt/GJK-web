@@ -1,5 +1,5 @@
 "use client";
-import { Header, Page } from "@/payload-types";
+import { Header } from "@/payload-types";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,8 +9,8 @@ import {
   NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
 import React from "react";
+import CMSLink from "@/components/cms-link";
 
 interface NavigationProps {
   data: Header;
@@ -24,7 +24,7 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
             const tabLabel = tab.enableDirectLink
               ? tab.link && (
                   <NavigationMenuLink asChild>
-                    <Link href={generateHref(tab.link)}>{tab.label}</Link>
+                    <CMSLink label={tab.label} {...tab.link} />
                   </NavigationMenuLink>
                 )
               : tab.label;
@@ -39,16 +39,12 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
                     {tab.links &&
                       tab.links.map((link) => {
                         if (!link.link) return;
-                        const reference = link.link?.reference as Page;
-
                         return (
-                          <Link
-                            href={generateHref(link.link)}
-                            key={link.id}
+                          <CMSLink
                             className="hover:bg-neutral-50 rounded-lg py-2 px-4 font-medium whitespace-nowrap"
-                          >
-                            {link.link.label || reference.title || ""}
-                          </Link>
+                            key={link.id}
+                            {...link.link}
+                          />
                         );
                       })}
                   </NavigationMenuContent>
@@ -71,21 +67,3 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
 };
 
 export default Navigation;
-
-type GenerateHrefArgs = {
-  type?: "internal" | "custom" | null;
-  url?: string | null;
-  reference?: number | Page | null;
-};
-
-const generateHref = ({ type, reference, url }: GenerateHrefArgs) => {
-  if ((type === "custom" || type === undefined) && url) {
-    return url;
-  }
-
-  if (type === "internal" && reference && typeof reference != "number") {
-    return "/" + reference.slug;
-  }
-
-  return "";
-};

@@ -21,6 +21,7 @@ const link = ({
         name: "type",
         type: "radio",
         defaultValue: "internal",
+        required: true,
         admin: {
           layout: "horizontal",
         },
