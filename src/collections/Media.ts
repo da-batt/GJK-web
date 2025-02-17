@@ -17,6 +17,9 @@ export const Media: CollectionConfig = {
     mimeTypes: ["image/*"],
     formatOptions: {
       format: "webp",
+      options: {
+        lossless: true,
+      },
     },
     crop: true,
     focalPoint: true,
