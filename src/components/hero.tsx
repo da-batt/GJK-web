@@ -88,27 +88,27 @@ const cards: HeroCard[] = [
     title: "Svoboda",
     content:
       "Dáváme studentům prostor pro vlastní nápady, projekty a akce. Učí se tím nejen tvořit, ale i spolupracovat a rozvíjet měkké dovednosti v přirozeném prostředí vrstevnického učení.",
-    imageUrl: "/hero/people4.jpeg",
+    imageUrl: "/hero/svoboda.jpg",
   },
   {
     id: 2,
     title: "Odpovědnost",
     content:
       "Se svobodou a důvěrou, kterých se našim studentů dostává, jde ruku v ruce i odpovědnost. Té se naši studenti učí praxí a někdy i skrze chyby.",
-    imageUrl: "/hero/people3.jpeg",
+    imageUrl: "/hero/odpovednost.jpg",
   },
   {
     id: 3,
     title: "Respekt",
     content:
       "Budujeme prostředí, kde se každý cítí bezpečně a jeho názor je slyšen. Respektující komunikace a přístup jsou základním pilířem kultury školy.",
-    imageUrl: "/hero/people2.jpeg",
+    imageUrl: "/hero/respekt.jpg",
   },
   {
     id: 4,
     title: "Odvaha",
     content:
       "Vedeme studenty k odvaze překročit své limity, zkoušet nové věci a pracovat na svých slabinách. Podporujeme i jejich občanskou odpovědnost a snahu měnit svět kolem sebe k lepšímu.",
-    imageUrl: "/hero/people1.jpeg",
+    imageUrl: "/hero/odvaha.jpg",
   },
 ];
