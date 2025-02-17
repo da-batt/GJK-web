@@ -28,10 +28,10 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="pt-32 lg:pt-48 lg:grid grid-cols-[3fr_5fr] gap-x-28 pb-32">
+      <section className="pt-24 lg:pt-36 lg:grid grid-cols-[3fr_5fr] gap-x-28 pb-40">
         <div className="col-start-2">
           <FadeIn whileInView viewportAmount={0.4}>
-            <p className="text-xl mb-12 leading-snug">
+            <p className="text-lg md:text-xl mb-12 leading-snug">
               Naší misí je připravit studenty na život v rychle se měnícím světě
               prostřednictvím kvalitního vzdělání, které propojuje znalosti,
               dovednosti a hodnoty. Škola rozvíjí kritické myšlení, tvořivost a
@@ -46,7 +46,7 @@ export default async function Home() {
         </div>
       </section>
       <hr className="border-neutral-100" />
-      <section className="pt-16 pb-32">
+      <section className="pt-12 pb-32">
         <FadeIn whileInView>
           <div className="flex justify-between items-end mb-6">
             <h2 className="display-2">Aktuality</h2>

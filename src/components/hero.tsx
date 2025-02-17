@@ -26,7 +26,7 @@ export const Hero = () => {
   return (
     <section>
       <motion.div
-        className="min-h-[75vh] h-[40em] relative rounded-2xl overflow-hidden"
+        className="min-h-[85vh] h-[32rem] relative rounded-2xl overflow-hidden"
         ref={ref}
         initial={{
           opacity: 0,
@@ -50,18 +50,18 @@ export const Hero = () => {
             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
             <div className="z-10 text-white">
               <FadeIn delay={0.7}>
-                <sub className="uppercase text-lg leading-[1.1] tracking-wider">
+                <sub className="uppercase text-base md:text-lg leading-[1.1] tracking-wider">
                   Naše hodnoty
                 </sub>
               </FadeIn>
               {index == 0 ? (
                 <FadeIn delay={1.2}>
-                  <h1 className="display-1 text-5xl leading-none">
+                  <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
                     {card.title}
                   </h1>
                 </FadeIn>
               ) : (
-                <h1 className="display-1 text-5xl leading-none">
+                <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
                   {card.title}
                 </h1>
               )}

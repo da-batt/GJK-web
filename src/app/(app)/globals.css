@@ -21,6 +21,12 @@
 	--text-5xl: 8rem;
 }
 
+@utility display-0 {
+	line-height: 105%;
+	letter-spacing: -2%;
+	@apply text-5xl font-semibold;
+}
+
 @utility display-1 {
 	line-height: 105%;
 	letter-spacing: -2%;
