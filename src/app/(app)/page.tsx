@@ -45,7 +45,7 @@ export default async function Home() {
           </FadeIn>
         </div>
       </section>
-      <hr className="border-neutral-100" />
+      <hr />
       <section className="pt-12 pb-32">
         <FadeIn whileInView>
           <div className="flex justify-between items-end mb-6">

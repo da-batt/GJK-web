@@ -65,7 +65,7 @@
 	}
 
 	hr {
-		border-width: 1px;
+		@apply border-neutral-100 border-1
 	}
 }
 
