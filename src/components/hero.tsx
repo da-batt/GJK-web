@@ -61,7 +61,7 @@ export const Hero = () => {
                   </h1>
                 </FadeIn>
               ) : (
-                <h1 className="display-1 text-[143px] leading-none">
+                <h1 className="display-1 text-5xl leading-none">
                   {card.title}
                 </h1>
               )}
