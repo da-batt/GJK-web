@@ -46,7 +46,11 @@ export default async function Page(props: {
                     <h1 className="text-xl font-semibold">{post.title}</h1>
                   </Link>
                   <p className="text-lg text-ellipsis">
-                    {parseRichText(post.content.root).slice(0, 200)}
+                    {parseRichText(post.content.root)
+                      .split(" ")
+                      .slice(0, 30)
+                      .join(" ")
+                      .concat(" ...")}
                   </p>
                 </div>
               </article>
