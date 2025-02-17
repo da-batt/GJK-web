@@ -28,32 +28,37 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="pt-48 grid grid-cols-[3fr_5fr] gap-x-28 pb-32">
+      <section className="pt-32 lg:pt-48 lg:grid grid-cols-[3fr_5fr] gap-x-28 pb-32">
         <div className="col-start-2">
-          <p className="text-xl mb-12 leading-snug">
-            Naší misí je připravit studenty na život v rychle se měnícím světě
-            prostřednictvím kvalitního vzdělání, které propojuje znalosti,
-            dovednosti a hodnoty. Škola rozvíjí kritické myšlení, tvořivost a
-            zodpovědný přístup k informacím i technologiím.
-          </p>
-          <Button asChild>
-            <Link href="/mise">
-              Zjistit více <ArrowRightIcon />
-            </Link>
-          </Button>
+          <FadeIn whileInView viewportAmount={0.4}>
+            <p className="text-xl mb-12 leading-snug">
+              Naší misí je připravit studenty na život v rychle se měnícím světě
+              prostřednictvím kvalitního vzdělání, které propojuje znalosti,
+              dovednosti a hodnoty. Škola rozvíjí kritické myšlení, tvořivost a
+              zodpovědný přístup k informacím i technologiím.
+            </p>
+            <Button asChild>
+              <Link href="/mise">
+                Zjistit více <ArrowRightIcon />
+              </Link>
+            </Button>
+          </FadeIn>
         </div>
       </section>
+      <hr className="border-neutral-100" />
       <section className="pt-16 pb-32">
-        <div className="flex justify-between items-end mb-6">
-          <h2 className="display-2">Aktuality</h2>
-          <Button variant="outline" asChild>
-            <Link href="/aktuality">
-              Všechny aktuality
-              <ArrowRightIcon />
-            </Link>
-          </Button>
-        </div>
-        <div className="grid grid-cols-3 gap-10">
+        <FadeIn whileInView>
+          <div className="flex justify-between items-end mb-6">
+            <h2 className="display-2">Aktuality</h2>
+            <Button variant="outline" className="hidden lg:inline-flex" asChild>
+              <Link href="/aktuality">
+                Všechny aktuality
+                <ArrowRightIcon />
+              </Link>
+            </Button>
+          </div>
+        </FadeIn>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {posts.map((post, index) => {
             const thumbnail = post.thumbnail as Media;
             const thumbnailUrl = thumbnail.sizes?.square?.url;

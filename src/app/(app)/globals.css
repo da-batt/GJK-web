@@ -49,7 +49,7 @@
 
 @layer base {
 	* {
-		font-size: 18px;
+		@apply text-[18px] xl:text-[19px] 2xl:text-[20px];
 		line-height: 1.5;
 	}
 
@@ -64,6 +64,11 @@
 }
 
 .payload-richtext {
+	p:not(:first-child) {
+		margin-top: 0.75rem;
+		/* Adds space only between paragraphs */
+	}
+
 	a {
 		text-decoration: underline;
 		color: blue

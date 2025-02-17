@@ -25,14 +25,14 @@ export default async function Page({
   if (!thumbnailUrl) return;
 
   return (
-    <article className="pt-20 pb-40 px-48">
+    <article className="pt-20 pb-40 md:px-12 lg:px-24 xl:px-32 2xl:px-48">
       <h1 className="display-2 mb-2">{post.title}</h1>
       <Image
         src={thumbnailUrl}
         alt={thumbnail.alt}
         width={1600}
         height={900}
-        className="w-full h-auto rounded-xl"
+        className="w-full rounded-xl h-[32em] object-cover md:h-auto"
       />
       <main className="pt-12">
         <RichText data={post.content} />
