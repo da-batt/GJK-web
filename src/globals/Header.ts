@@ -20,12 +20,20 @@ export const Header: GlobalConfig = {
           required: true,
         },
         {
-          name: "enableDropdown",
-          type: "checkbox",
-        },
-        {
-          name: "enableDirectLink",
-          type: "checkbox",
+          type: "row",
+          fields: [
+            {
+              name: "enableDirectLink",
+              type: "checkbox",
+              admin: {
+                width: "16rem",
+              },
+            },
+            {
+              name: "enableDropdown",
+              type: "checkbox",
+            },
+          ],
         },
         {
           label: "Direct link",
@@ -39,27 +47,19 @@ export const Header: GlobalConfig = {
           ],
         },
         {
+          name: "links",
           label: "Dropdown links",
-          type: "collapsible",
+          type: "array",
+          minRows: 1,
+          required: true,
           admin: {
             condition: (_, siblingData) => siblingData.enableDropdown,
             initCollapsed: true,
-          },
-          fields: [
-            {
-              name: "links",
-              type: "array",
-              minRows: 1,
-              required: true,
-              admin: {
-                initCollapsed: true,
-                components: {
-                  RowLabel: "@/globals/LinksRowLabel.tsx",
-                },
-              },
-              fields: [link({ overrides: { label: false } })],
+            components: {
+              RowLabel: "@/globals/LinksRowLabel.tsx",
             },
-          ],
+          },
+          fields: [link({ overrides: { label: false } })],
         },
       ],
     },
