@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FadeIn } from "./animations";
+import { ArrowDownIcon } from "lucide-react";
 
 export const Hero = () => {
   const ref = useRef(null);
@@ -48,23 +49,28 @@ export const Hero = () => {
               ref={ref}
             ></motion.div>
             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
-            <div className="z-10 text-white">
-              <FadeIn delay={0.7}>
-                <sub className="uppercase text-base md:text-lg leading-[1.1] tracking-wider">
-                  Naše hodnoty
-                </sub>
-              </FadeIn>
-              {index == 0 ? (
-                <FadeIn delay={1.2}>
+            <div className="z-10 text-white flex justify-between w-full items-end">
+              <div>
+                <FadeIn delay={0.7}>
+                  <sub className="uppercase text-base md:text-lg leading-[1.1] tracking-wider">
+                    Naše hodnoty
+                  </sub>
+                </FadeIn>
+                {index == 0 ? (
+                  <FadeIn delay={1.2}>
+                    <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
+                      {card.title}
+                    </h1>
+                  </FadeIn>
+                ) : (
                   <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
                     {card.title}
                   </h1>
-                </FadeIn>
-              ) : (
-                <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
-                  {card.title}
-                </h1>
-              )}
+                )}
+              </div>
+              <FadeIn delay={2.4}>
+                <ArrowDownIcon className="w-[2rem] h-auto animate-bounce mb-0.5" />
+              </FadeIn>
             </div>
           </div>
         ))}
