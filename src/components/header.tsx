@@ -9,9 +9,9 @@ export default async function Header() {
   const navigationData = await payload.findGlobal({ slug: "header" });
 
   return (
-    <header className="py-5 flex items-center justify-between container">
+    <header className="py-4 sm:py-5 flex items-center justify-between container">
       <Link href="/">
-        <Logo className="h-auto w-[7.5rem]" />
+        <Logo className="h-auto w-[6.5rem] sm:w-[7.5rem]" />
       </Link>
       <Navigation data={navigationData} />
     </header>

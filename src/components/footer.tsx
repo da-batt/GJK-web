@@ -10,7 +10,7 @@ const Footer = async () => {
 
   return (
     <footer>
-      <div className="py-12 flex justify-between container">
+      <div className="py-12 md:flex justify-between container">
         <div>
           <Logo className="w-52 mb-2 fill-white" />
           <ul>
@@ -31,7 +31,7 @@ const Footer = async () => {
             <li>a99zagh</li>
           </ul>
         </div>
-        <div className="flex gap-16">
+        <div className="md:flex gap-16">
           {footer.columns?.map((col) => (
             <div key={col.id}>
               <h3>{col.label}</h3>

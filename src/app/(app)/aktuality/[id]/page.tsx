@@ -32,7 +32,7 @@ export default async function Page({
         alt={thumbnail.alt}
         width={1600}
         height={900}
-        className="w-full rounded-xl h-[32em] object-cover md:h-auto"
+        className="w-full rounded-xl object-cover h-[18rem] sm:h-auto"
       />
       <main className="pt-12">
         <RichText data={post.content} />

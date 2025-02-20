@@ -27,7 +27,7 @@ export const Hero = () => {
   return (
     <section>
       <motion.div
-        className="min-h-[85vh] h-[32rem] relative rounded-2xl overflow-hidden"
+        className="min-h-[80vh] lg:min-h-[85vh] relative rounded-2xl overflow-hidden"
         ref={ref}
         initial={{
           opacity: 0,
@@ -37,7 +37,7 @@ export const Hero = () => {
       >
         {cards.map((card, index) => (
           <div
-            className={`duration-2000 absolute inset-0 p-6 md:p-10 flex items-end justify-between transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
+            className={`duration-2000 absolute inset-0 p-4 md:p-6 md:p-10 flex items-end justify-between transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
             key={index}
           >
             <motion.div
@@ -49,28 +49,24 @@ export const Hero = () => {
               ref={ref}
             ></motion.div>
             <div className="absolute inset-0 bg-linear-to-t from-black to-transparent to-60% opacity-75"></div>
-            <div className="z-10 text-white flex justify-between w-full items-end">
-              <div>
-                <FadeIn delay={0.7}>
-                  <sub className="uppercase text-base md:text-lg leading-[1.1] tracking-wider">
-                    Naše hodnoty
-                  </sub>
-                </FadeIn>
+            <div className="z-10 text-white w-full items-end">
+              <FadeIn delay={0.7}>
+                <sub className="uppercase text-base md:text-lg leading-[1.1] tracking-wider">
+                  Naše hodnoty
+                </sub>
+              </FadeIn>
+              <div className="inline-flex justify-between w-full items-baseline">
                 {index == 0 ? (
                   <FadeIn delay={1.2}>
-                    <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
-                      {card.title}
-                    </h1>
+                    <h1 className="display-0">{card.title}</h1>
                   </FadeIn>
                 ) : (
-                  <h1 className="display-0 text-3xl md:text-4xl lg:text-5xl leading-none">
-                    {card.title}
-                  </h1>
+                  <h1 className="display-0">{card.title}</h1>
                 )}
+                <FadeIn delay={2.4}>
+                  <ArrowDownIcon className="w-[1rem] md:w-[1.5rem] lg:w-[2rem] h-auto animate-bounce" />
+                </FadeIn>
               </div>
-              <FadeIn delay={2.4}>
-                <ArrowDownIcon className="w-[2rem] h-auto animate-bounce mb-0.5" />
-              </FadeIn>
             </div>
           </div>
         ))}
