@@ -9,27 +9,36 @@ const Footer = async () => {
   const footer = await payload.findGlobal({ slug: "footer" });
 
   return (
-    <footer className="bg-black text-white">
+    <footer>
       <div className="py-12 flex justify-between container">
         <div>
           <Logo className="w-52 mb-2 fill-white" />
-          <p>Parléřova 2, 169 00, Praha 6</p>
-          <p>+420 233 352 546</p>
-          <a href="mailto:gjk@gjk.cz">
-            <p>gjk@gjk.cz</p>
-          </a>
+          <ul>
+            <li>Parléřova 2, 169 00, Praha 6</li>
+            <li>+420 233 352 546</li>
+            <li>
+              <a href="mailto:gjk@gjk.cz">gjk@gjk.cz</a>
+            </li>
+          </ul>
+          <h3>Identifikační údaje</h3>
+          <ul>
+            <li>IČO 61388246</li>
+            <li>IZO 061388246</li>
+            <li>REDIZO 600005691</li>
+          </ul>
+          <h3>Datová schránka</h3>
+          <ul>
+            <li>a99zagh</li>
+          </ul>
         </div>
         <div className="flex gap-16">
           {footer.columns?.map((col) => (
             <div key={col.id}>
-              <h4 className="mb-2">{col.label}</h4>
+              <h3>{col.label}</h3>
               <ul>
                 {col.links.map((link) => (
                   <li key={link.id}>
-                    <CMSLink
-                      className="text-neutral-200 hover:text-white"
-                      {...link.link}
-                    />
+                    <CMSLink {...link.link} />
                   </li>
                 ))}
               </ul>

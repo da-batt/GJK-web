@@ -67,7 +67,29 @@
 	hr {
 		@apply border-neutral-100 border-1
 	}
+
+
+	footer {
+		@apply bg-black text-white;
+
+		ul {
+			@apply text-neutral-200 mb-8
+		}
+
+		h3 {
+			@apply font-medium mb-2
+		}
+
+		a {
+			@apply transition-colors;
+
+			@variant hover {
+				@apply text-white
+			}
+		}
+	}
 }
+
 
 .payload-richtext {
 	p:not(:first-child) {
