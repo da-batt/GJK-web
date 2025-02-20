@@ -11,6 +11,7 @@ type CMSLinkProps = {
   reference?: Page | number | null;
   url?: string | null;
   label?: string | null;
+  newTab?: boolean | null;
 };
 
 const CMSLink = ({
@@ -19,11 +20,16 @@ const CMSLink = ({
   type,
   children,
   label,
+  newTab,
   ...props
 }: CMSLinkProps) => {
   const pageTitle = (reference as Page)?.title;
   return (
-    <Link href={generateHref({ type, reference, url })} {...props}>
+    <Link
+      href={generateHref({ type, reference, url })}
+      target={newTab ? "_blank" : "_self"}
+      {...props}
+    >
       {label || pageTitle}
       {children}
     </Link>

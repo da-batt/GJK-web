@@ -24,6 +24,7 @@ const link = ({
         required: true,
         admin: {
           layout: "horizontal",
+          width: "50%",
         },
         options: [
           { label: "Internal", value: "internal" },
@@ -55,23 +56,32 @@ const link = ({
     },
   ];
 
+  const newTabField: Field = {
+    name: "newTab",
+    type: "checkbox",
+    label: "Open in new tab",
+  };
+
   if (!disableURLLabel) {
-    linkResult.fields.push({
-      type: "row",
-      fields: [
-        ...linkTypes,
-        {
-          name: "label",
-          type: "text",
-          required: true,
-          admin: {
-            condition: (_, siblingData) => siblingData.type === "custom",
+    linkResult.fields.push(
+      {
+        type: "row",
+        fields: [
+          ...linkTypes,
+          {
+            name: "label",
+            type: "text",
+            required: true,
+            admin: {
+              condition: (_, siblingData) => siblingData.type === "custom",
+            },
           },
-        },
-      ],
-    });
+        ],
+      },
+      newTabField,
+    );
   } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes];
+    linkResult.fields = [...linkResult.fields, newTabField, ...linkTypes];
   }
 
   return deepMerge(linkResult, overrides);

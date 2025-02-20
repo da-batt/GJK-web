@@ -436,6 +436,7 @@ export interface Header {
         enableDropdown?: boolean | null;
         link: {
           type: 'internal' | 'custom';
+          newTab?: boolean | null;
           reference?: (number | null) | Page;
           url?: string | null;
         };
@@ -446,6 +447,7 @@ export interface Header {
                 reference?: (number | null) | Page;
                 url?: string | null;
                 label?: string | null;
+                newTab?: boolean | null;
               };
               id?: string | null;
             }[]
@@ -471,6 +473,7 @@ export interface Footer {
             reference?: (number | null) | Page;
             url?: string | null;
             label?: string | null;
+            newTab?: boolean | null;
           };
           id?: string | null;
         }[];
@@ -495,6 +498,7 @@ export interface HeaderSelect<T extends boolean = true> {
           | T
           | {
               type?: T;
+              newTab?: T;
               reference?: T;
               url?: T;
             };
@@ -508,6 +512,7 @@ export interface HeaderSelect<T extends boolean = true> {
                     reference?: T;
                     url?: T;
                     label?: T;
+                    newTab?: T;
                   };
               id?: T;
             };
@@ -536,6 +541,7 @@ export interface FooterSelect<T extends boolean = true> {
                     reference?: T;
                     url?: T;
                     label?: T;
+                    newTab?: T;
                   };
               id?: T;
             };
