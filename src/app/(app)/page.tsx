@@ -31,7 +31,7 @@ export default async function Home() {
       <section className="pt-24 lg:pt-32 lg:grid grid-cols-[3fr_5fr] gap-x-28 pb-40">
         <div className="col-start-2">
           <FadeIn whileInView viewportAmount={0.4}>
-            <p className="text-lg mb-12 px-2 sm:px-0">
+            <p className="paragraph-large mb-12 px-2 sm:px-0">
               Naší misí je připravit studenty na život v rychle se měnícím světě
               prostřednictvím kvalitního vzdělání, které propojuje znalosti,
               dovednosti a hodnoty. Škola rozvíjí kritické myšlení, tvořivost a

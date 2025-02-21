@@ -26,9 +26,10 @@ export default async function Page({
   if (page == undefined) return notFound();
 
   return (
-    <div className="pt-40 pb-40 xl:px-24 2xl:px-48">
-      <h1 className="display-1 mb-4">{page.title}</h1>
-      <hr className="mb-10" />
+    <div className="pt-32 pb-40 xl:px-24 2xl:px-48">
+      <h1 className="display-1">{page.title}</h1>
+      <p className="paragraph-large">{page.description}</p>
+      <hr className="mb-10 mt-4" />
       <RichText data={page.content} />
     </div>
   );

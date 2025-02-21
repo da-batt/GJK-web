@@ -217,6 +217,7 @@ export interface Post {
 export interface Page {
   id: number;
   title: string;
+  description?: string | null;
   content: {
     root: {
       type: string;
@@ -386,6 +387,7 @@ export interface PostsSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
   content?: T;
   slug?: T;
   updatedAt?: T;

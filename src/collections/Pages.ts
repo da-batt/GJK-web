@@ -13,6 +13,10 @@ export const Pages: CollectionConfig = {
       required: true,
     },
     {
+      name: "description",
+      type: "text",
+    },
+    {
       name: "content",
       type: "richText",
       required: true,
