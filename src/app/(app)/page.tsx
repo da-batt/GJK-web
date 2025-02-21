@@ -72,6 +72,7 @@ export default async function Home() {
                     <Image
                       src={thumbnailUrl}
                       alt={thumbnail.alt}
+                      loading="lazy"
                       width={600}
                       height={600}
                       className="rounded-xl mb-2 w-full h-auto"
