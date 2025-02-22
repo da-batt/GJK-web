@@ -8,6 +8,7 @@ export const Header: GlobalConfig = {
     {
       name: "tabs",
       type: "array",
+      required: true,
       admin: {
         components: {
           RowLabel: "@/globals/TabsRowLabel.tsx",

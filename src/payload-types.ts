@@ -431,32 +431,30 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: number;
-  tabs?:
-    | {
-        label: string;
-        enableDirectLink?: boolean | null;
-        enableDropdown?: boolean | null;
-        link: {
-          type: 'internal' | 'custom';
-          newTab?: boolean | null;
-          reference?: (number | null) | Page;
-          url?: string | null;
-        };
-        links?:
-          | {
-              link: {
-                type: 'internal' | 'custom';
-                reference?: (number | null) | Page;
-                url?: string | null;
-                label?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-      }[]
-    | null;
+  tabs: {
+    label: string;
+    enableDirectLink?: boolean | null;
+    enableDropdown?: boolean | null;
+    link: {
+      type: 'internal' | 'custom';
+      newTab?: boolean | null;
+      reference?: (number | null) | Page;
+      url?: string | null;
+    };
+    links?:
+      | {
+          link: {
+            type: 'internal' | 'custom';
+            reference?: (number | null) | Page;
+            url?: string | null;
+            label?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }

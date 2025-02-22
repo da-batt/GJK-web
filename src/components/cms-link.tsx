@@ -4,15 +4,21 @@ import React, { ReactNode } from "react";
 
 type LinkType = "internal" | "custom";
 
-type CMSLinkProps = {
+export type LinkField = {
   type: LinkType;
-  className?: string;
-  children?: ReactNode;
   reference?: Page | number | null;
   url?: string | null;
   label?: string | null;
   newTab?: boolean | null;
 };
+
+type CMSLinkProps = {
+  className?: string;
+  children?: ReactNode;
+  onClick?: (
+    event: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => void;
+} & LinkField;
 
 const CMSLink = ({
   url,

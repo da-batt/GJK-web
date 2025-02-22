@@ -2,7 +2,8 @@ import Link from "next/link";
 import Logo from "./logo";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import Navigation from "./navigation";
+import Navigation from "@/components/navigation";
+import MobileNavigation from "@/components/mobile-navigation";
 
 export default async function Header() {
   const payload = await getPayload({ config });
@@ -14,6 +15,7 @@ export default async function Header() {
         <Logo className="h-auto w-[6.5rem] sm:w-[7.5rem]" />
       </Link>
       <Navigation data={navigationData} />
+      <MobileNavigation data={navigationData} />
     </header>
   );
 }
