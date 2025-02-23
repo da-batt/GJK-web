@@ -35,7 +35,7 @@ const MobileNavigation: React.FC<MobileNavigationProps> = ({ data }) => {
         <MenuIcon />
       </DialogTrigger>
       <DialogPortal>
-        <DialogOverlay className="fixed inset-0 bg-black/20">
+        <DialogOverlay className="fixed inset-0 bg-black/20 z-20">
           <DialogTitle></DialogTitle>
           <DialogContent className="bg-white w-80 h-full absolute right-0">
             <div className="py-5 mr-1 flex justify-end px-4 border-b border-neutral-100">
