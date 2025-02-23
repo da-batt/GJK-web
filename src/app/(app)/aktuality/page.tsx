@@ -17,22 +17,25 @@ export default async function Page(props: {
   console.log("Search param: " + page.toString());
 
   const payload = await getPayload({ config });
-  const posts = await payload.find({ collection: "posts", page, limit: 10 });
+  const posts = await payload.find({ collection: "posts", page, limit: 12 });
 
   return (
     <main className="pt-20 pb-32">
       <FadeIn>
         <h1 className="display-1">Aktuality</h1>
       </FadeIn>
-      <div className="grid gap-8 mb-8 pt-8" id="col">
+      <div
+        className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 mb-8 pt-4"
+        id="col"
+      >
         {posts.docs.map((post, index) => {
           const thumbnail = post.thumbnail as Media;
           const thumbnailUrl = thumbnail.sizes?.card?.url;
           if (!thumbnailUrl) return <div key={post.id}>Error loading post</div>;
           return (
             <FadeIn asChild delay={0.2 + index * 0.2} key={post.id}>
-              <article className="grid grid-cols-[28em_auto] gap-6">
-                <div className="relative">
+              <article className="">
+                <div className="relative mb-3">
                   <Image
                     src={thumbnailUrl}
                     alt={thumbnail.alt}
@@ -43,9 +46,11 @@ export default async function Page(props: {
                 </div>
                 <div>
                   <Link href={`/aktuality/${post.id}`}>
-                    <h1 className="text-xl font-semibold">{post.title}</h1>
+                    <h1 className="text-lg leading-[1.2] font-semibold mb-1">
+                      {post.title}
+                    </h1>
                   </Link>
-                  <p className="text-lg text-ellipsis">
+                  <p className="text-ellipsis">
                     {parseRichText(post.content.root)
                       .split(" ")
                       .slice(0, 30)
