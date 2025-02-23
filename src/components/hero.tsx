@@ -78,7 +78,6 @@ export const Hero = () => {
 export default Hero;
 
 interface HeroCard {
-  id: number;
   title: string;
   content: string;
   imageUrl: string;
@@ -86,28 +85,24 @@ interface HeroCard {
 
 const cards: HeroCard[] = [
   {
-    id: 1,
     title: "Svoboda",
     content:
       "Dáváme studentům prostor pro vlastní nápady, projekty a akce. Učí se tím nejen tvořit, ale i spolupracovat a rozvíjet měkké dovednosti v přirozeném prostředí vrstevnického učení.",
     imageUrl: "/hero/svoboda.webp",
   },
   {
-    id: 2,
     title: "Odpovědnost",
     content:
       "Se svobodou a důvěrou, kterých se našim studentů dostává, jde ruku v ruce i odpovědnost. Té se naši studenti učí praxí a někdy i skrze chyby.",
     imageUrl: "/hero/odpovednost.webp",
   },
   {
-    id: 3,
     title: "Respekt",
     content:
       "Budujeme prostředí, kde se každý cítí bezpečně a jeho názor je slyšen. Respektující komunikace a přístup jsou základním pilířem kultury školy.",
     imageUrl: "/hero/respekt.webp",
   },
   {
-    id: 4,
     title: "Odvaha",
     content:
       "Vedeme studenty k odvaze překročit své limity, zkoušet nové věci a pracovat na svých slabinách. Podporujeme i jejich občanskou odpovědnost a snahu měnit svět kolem sebe k lepšímu.",
