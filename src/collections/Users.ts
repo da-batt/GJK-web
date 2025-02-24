@@ -1,9 +1,20 @@
-import type { CollectionConfig } from "payload";
+import type { AccessArgs, CollectionConfig } from "payload";
+
+export const isAdmin = ({ req }: AccessArgs) => req.user?.role == "admin";
+const isSelf = (args: AccessArgs) => args.req.user?.id == args.id;
+const isAdminOrSelf = (args: AccessArgs) => isAdmin(args) || isSelf(args);
+const isAdminAndSelf = (args: AccessArgs) => isAdmin(args) && isSelf(args);
 
 export const Users: CollectionConfig = {
   slug: "users",
   admin: {
     useAsTitle: "email",
+  },
+  access: {
+    create: isAdmin,
+    delete: isAdminAndSelf,
+    update: (args) => isAdminAndSelf(args) || isSelf(args),
+    read: isAdminOrSelf,
   },
   auth: true,
   fields: [
@@ -16,6 +27,9 @@ export const Users: CollectionConfig = {
       ],
       required: true,
       defaultValue: "editor",
+      access: {
+        update: isAdminAndSelf,
+      },
     },
   ],
 };
