@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { unstable_cache } from "next/cache";
 import { ArrowRightIcon } from "lucide-react";
-import { Button } from "@/components/button";
+import Button from "@/components/ui/button";
 import { FadeIn } from "@/components/animations";
 import { Media } from "@/payload-types";
 
