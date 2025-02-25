@@ -10,6 +10,7 @@ interface FadeInProps {
   whileInView?: boolean;
   viewportAmount?: number;
   asChild?: boolean;
+  className?: string;
 }
 
 export const FadeIn: React.FC<FadeInProps> = ({
@@ -19,6 +20,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   whileInView = false,
   asChild = false,
   viewportAmount = 0.5,
+  ...props
 }) => {
   const Component = asChild ? motion.create(Slot) : motion.div;
   return (
@@ -35,6 +37,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
         visible: { opacity: 1, translateY: 0 },
         hidden: { opacity: 0, translateY: "0.5rem" },
       }}
+      {...props}
     >
       {children}
     </Component>

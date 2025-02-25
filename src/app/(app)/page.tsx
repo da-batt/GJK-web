@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="pt-24 lg:pt-32 lg:grid grid-cols-[3fr_5fr] gap-x-28 pb-40">
+      <section className="py-24 lg:grid grid-cols-[3fr_5fr] gap-x-28 border-b-neutral-100 border-b-2">
         <div className="col-start-2">
           <FadeIn whileInView viewportAmount={0.4}>
             <p className="paragraph-large mb-12 px-2 sm:px-0">
@@ -45,7 +45,6 @@ export default async function Home() {
           </FadeIn>
         </div>
       </section>
-      <hr />
       <section className="pt-12 pb-32">
         <FadeIn whileInView>
           <div className="flex justify-between items-end mb-2 sm:mb-4 lg:mb-6">
@@ -58,24 +57,30 @@ export default async function Home() {
             </Button>
           </div>
         </FadeIn>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
           {posts.map((post, index) => {
             const thumbnail = post.thumbnail as Media;
-            const thumbnailUrl = thumbnail.sizes?.square?.url;
+            const thumbnailUrl = thumbnail.sizes?.card?.url;
             if (!thumbnailUrl)
               return <div key={post.id}>Failed to load post</div>;
 
             return (
-              <FadeIn key={post.id} delay={0.2 * index} asChild whileInView>
+              <FadeIn
+                key={post.id}
+                delay={0.2 * index}
+                asChild
+                whileInView
+                className="last:sm:hidden last:lg:block"
+              >
                 <Link href={`/aktuality/${post.id}`}>
-                  <article>
+                  <article className="group">
                     <Image
                       src={thumbnailUrl}
                       alt={thumbnail.alt}
                       loading="lazy"
                       width={600}
-                      height={600}
-                      className="rounded-xl mb-2 w-full h-auto"
+                      height={450}
+                      className="rounded-xl mb-2 w-full h-auto group-hover:opacity-80 transition-opacity duration-200"
                     />
                     <h1 className="text-lg">{post.title}</h1>
                   </article>
