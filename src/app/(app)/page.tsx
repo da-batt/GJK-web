@@ -47,8 +47,8 @@ export default async function Home() {
       </section>
       <section className="pt-12 pb-32">
         <FadeIn whileInView>
-          <div className="flex justify-between items-end mb-2 sm:mb-4 lg:mb-6">
-            <h2 className="display-2">Aktuality</h2>
+          <div className="inline-flex justify-between items-baseline w-full mb-2 sm:mb-4 lg:mb-6">
+            <h2 className="display-3">Aktuality</h2>
             <Button variant="outline" className="hidden lg:inline-flex" asChild>
               <Link href="/aktuality">
                 Všechny aktuality

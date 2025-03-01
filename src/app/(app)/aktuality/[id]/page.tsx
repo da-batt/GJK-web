@@ -25,8 +25,8 @@ export default async function Page({
   if (!thumbnailUrl) return;
 
   return (
-    <article className="pt-20 pb-40 md:px-12 lg:px-24 xl:px-32 2xl:px-48">
-      <h1 className="display-2 mb-2">{post.title}</h1>
+    <article className="pt-20 pb-40 md:px-12 lg:px-24 xl:px-36 2xl:px-48">
+      <h1 className="display-3 mb-2">{post.title}</h1>
       <Image
         src={thumbnailUrl}
         alt={thumbnail.alt}

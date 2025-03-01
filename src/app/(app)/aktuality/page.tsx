@@ -22,7 +22,7 @@ export default async function Page(props: {
   return (
     <main className="pt-20 pb-32">
       <FadeIn>
-        <h1 className="display-1">Aktuality</h1>
+        <h1 className="display-2 mb-2">Aktuality</h1>
       </FadeIn>
       <div
         className="grid md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 mb-8 pt-4"

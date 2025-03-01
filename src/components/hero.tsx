@@ -58,10 +58,10 @@ export const Hero = () => {
               <div className="inline-flex justify-between w-full items-baseline">
                 {index == 0 ? (
                   <FadeIn delay={1.2}>
-                    <h1 className="display-0">{card.title}</h1>
+                    <h1 className="display-1">{card.title}</h1>
                   </FadeIn>
                 ) : (
-                  <h1 className="display-0">{card.title}</h1>
+                  <h1 className="display-1">{card.title}</h1>
                 )}
                 <FadeIn delay={2.4}>
                   <ArrowDownIcon className="hidden sm:block sm:w-[1.5rem] lg:w-[2rem] h-auto animate-bounce" />

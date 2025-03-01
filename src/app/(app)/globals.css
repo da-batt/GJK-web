@@ -1,5 +1,22 @@
 @import 'tailwindcss';
 
+:root {
+	--type-scale: 1.2;
+}
+
+@media (width >=48rem) {
+	:root {
+		--type-scale: 1.25;
+	}
+}
+
+@media (width >=64rem) {
+	:root {
+		--type-scale: 1.4;
+	}
+}
+
+
 @theme {
 	--color-*: initial;
 	--color-black: #111111;
@@ -13,53 +30,68 @@
 	--text-*: initial;
 	--text-sm: 0.8rem;
 	--text-base: 1rem;
-	--text-lg: 1.414rem;
-	--text-xl: 2rem;
-	--text-2xl: 2.827rem;
-	--text-3xl: 4rem;
-	--text-4xl: 5.653rem;
-	--text-5xl: 8rem;
-}
-
-@utility display-0 {
-	line-height: 105%;
-	letter-spacing: -2%;
-	@apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold;
+	--text-lg: calc(1rem * var(--type-scale));
+	--text-xl: calc(1rem * pow(var(--type-scale), 2));
+	--text-2xl: calc(1rem * pow(var(--type-scale), 3));
+	--text-3xl: calc(1rem * pow(var(--type-scale), 4));
+	--text-4xl: calc(1rem * pow(var(--type-scale), 5));
+	--text-5xl: calc(1rem * pow(var(--type-scale), 6));
 }
 
 @utility display-1 {
+	font-size: var(--text-5xl);
+	line-height: 1.05;
 	letter-spacing: -2%;
-	@apply text-3xl md:text-4xl font-semibold leading-[1.05];
+	font-weight: 500;
 }
 
 @utility display-2 {
-	@apply font-semibold text-2xl lg:text-3xl leading-[1.20];
+	font-size: var(--text-4xl);
+	line-height: 1.2;
+	letter-spacing: -2%;
+	font-weight: 500;
 }
 
 @utility display-3 {
-	@apply font-semibold text-2xl leading-tight;
+	font-size: var(--text-3xl);
+	line-height: 1.2;
+	font-weight: 500;
 }
 
 @utility display-4 {
-	@apply font-semibold text-xl leading-snug;
+	font-size: var(--text-2xl);
+	line-height: 1.25;
+	font-weight: 500;
 }
 
-@utility container {
-	@apply max-w-screen-2xl mx-auto px-3 md:px-8 xl:px-12;
+@utility display-5 {
+	font-size: var(--text-xl);
+	line-height: 1.3;
+	font-weight: 500;
+}
+
+@utility display-6 {
+	font-size: var(--text-lg);
+	line-height: 1.4;
+	font-weight: 500;
 }
 
 @utility paragraph-large {
 	@apply text-lg leading-[1.5] tracking-[2%];
 }
 
+@utility container {
+	@apply px-4 md:px-8 lg:px-10 mx-auto;
+}
+
 @layer base {
 	* {
-		@apply text-[18px] xl:text-[19px] 2xl:text-[20px];
 		line-height: 1.5;
+		font-size: clamp(17px, 2.2vw, 20px);
 	}
 
 	body {
-		@apply max-w-[100vw];
+		max-width: 100vw;
 		color: var(--color-black);
 	}
 
@@ -69,8 +101,6 @@
 
 
 	footer {
-		@apply bg-black text-white;
-
 		ul {
 			@apply text-neutral-200 mb-8
 		}
@@ -106,7 +136,15 @@
 		list-style-position: inside;
 	}
 
-	h1 {
+	h2 {
 		@apply display-4
+	}
+
+	h3 {
+		@apply display-5
+	}
+
+	h4 {
+		@apply display-6
 	}
 }

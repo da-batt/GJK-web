@@ -27,7 +27,7 @@ export default async function Page({
 
   return (
     <div className="pt-32 pb-40 xl:px-24 2xl:px-48">
-      <h1 className="display-1">{page.title}</h1>
+      <h1 className="display-2">{page.title}</h1>
       {page.description && (
         <p className="paragraph-large">{page.description}</p>
       )}
