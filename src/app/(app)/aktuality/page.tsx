@@ -41,7 +41,7 @@ export default async function Page(props: {
                     alt={thumbnail.alt}
                     height={450}
                     width={600}
-                    className="w-full h-auto rounded-xl"
+                    className="w-full h-auto rounded-xl border border-neutral-100"
                   />
                 </div>
                 <div>

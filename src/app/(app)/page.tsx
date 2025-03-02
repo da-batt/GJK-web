@@ -80,7 +80,7 @@ export default async function Home() {
                       loading="lazy"
                       width={600}
                       height={450}
-                      className="rounded-xl mb-2 w-full h-auto group-hover:opacity-80 transition-opacity duration-200"
+                      className="rounded-xl mb-2 w-full h-auto group-hover:opacity-80 transition-opacity duration-200 border border-neutral-100"
                     />
                     <h1 className="text-lg">{post.title}</h1>
                   </article>
