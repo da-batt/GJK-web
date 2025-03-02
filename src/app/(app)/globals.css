@@ -87,7 +87,7 @@
 @layer base {
 	* {
 		line-height: 1.5;
-		font-size: clamp(17px, 2.2vw, 20px);
+		font-size: clamp(17px, 1.5vw, 20px);
 	}
 
 	body {
@@ -121,9 +121,8 @@
 
 
 .payload-richtext {
-	p:not(:first-child) {
-		margin-top: 0.75rem;
-		/* Adds space only between paragraphs */
+	p {
+		@apply not-first:mt-3
 	}
 
 	a {
@@ -131,20 +130,34 @@
 		color: blue
 	}
 
-	ul {
-		list-style-type: disc;
+	ul,
+	ol {
+		margin: 1rem 0;
+		list-style-position: inside;
 		list-style-position: inside;
 	}
 
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
 	h2 {
-		@apply display-4
+		@apply display-4 not-first:mt-6
 	}
 
 	h3 {
-		@apply display-5
+		@apply display-5 not-first:mt-6;
 	}
 
 	h4 {
-		@apply display-6
+		@apply display-6 not-first:mt-6;
+	}
+
+	img {
+		@apply rounded-xl border border-neutral-100 my-4;
 	}
 }

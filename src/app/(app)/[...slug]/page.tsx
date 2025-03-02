@@ -26,13 +26,15 @@ export default async function Page({
   if (page == undefined) return notFound();
 
   return (
-    <div className="pt-32 pb-40 xl:px-24 2xl:px-48">
-      <h1 className="display-2">{page.title}</h1>
-      {page.description && (
-        <p className="paragraph-large">{page.description}</p>
-      )}
-      <hr className="mb-10 mt-4" />
-      <RichText data={page.content} />
+    <div className="pt-24 pb-40 lg:grid grid-cols-12">
+      <div className="col-start-2 xl:col-start-3 col-end-12 xl:col-end-11">
+        <h1 className="display-2">{page.title}</h1>
+        {page.description && (
+          <p className="paragraph-large">{page.description}</p>
+        )}
+        <hr className="mb-6 mt-4" />
+        <RichText data={page.content} />
+      </div>
     </div>
   );
 }

@@ -25,18 +25,20 @@ export default async function Page({
   if (!thumbnailUrl) return;
 
   return (
-    <article className="pt-20 pb-40 md:px-12 lg:px-24 xl:px-36 2xl:px-48">
-      <h1 className="display-3 mb-2">{post.title}</h1>
-      <Image
-        src={thumbnailUrl}
-        alt={thumbnail.alt}
-        width={1600}
-        height={900}
-        className="w-full rounded-xl object-cover h-[18rem] sm:h-auto"
-      />
-      <main className="pt-12">
-        <RichText data={post.content} />
-      </main>
+    <article className="pt-24 pb-40 lg:grid grid-cols-12">
+      <div className="col-start-2 xl:col-start-3 col-end-12 xl:col-end-11">
+        <h1 className="display-3 mb-2">{post.title}</h1>
+        <Image
+          src={thumbnailUrl}
+          alt={thumbnail.alt}
+          width={1600}
+          height={900}
+          className="w-full rounded-xl object-cover h-[18rem] sm:h-auto border border-neutral-100"
+        />
+        <main className="pt-10">
+          <RichText data={post.content} />
+        </main>
+      </div>
     </article>
   );
 }
