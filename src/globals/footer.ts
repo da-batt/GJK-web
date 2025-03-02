@@ -10,7 +10,7 @@ export const Footer: GlobalConfig = {
       type: "array",
       admin: {
         components: {
-          RowLabel: "@/globals/TabsRowLabel.tsx",
+          RowLabel: "@/globals/tabs-row-label.tsx",
         },
       },
       fields: [
@@ -27,7 +27,7 @@ export const Footer: GlobalConfig = {
           admin: {
             initCollapsed: true,
             components: {
-              RowLabel: "@/globals/LinksRowLabel.tsx",
+              RowLabel: "@/globals/links-row-label.tsx",
             },
           },
           fields: [link({ overrides: { label: false } })],
