@@ -3,7 +3,7 @@ import config from "@payload-config";
 import { getPayload } from "payload";
 import { FadeIn } from "@/components/animations";
 import Image from "next/image";
-import { cn, parseRichText } from "@/lib/utils";
+import { parseRichText } from "@/lib/utils";
 import Button from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -64,20 +64,12 @@ export default async function Page(props: {
         })}
       </div>
       <div className="flex justify-between">
-        <Button
-          asChild
-          variant={posts.hasPrevPage ? "default" : "disabled"}
-          className={cn(!posts.hasPrevPage && "pointer-events-none")}
-        >
+        <Button asChild disabled={!posts.hasPrevPage}>
           <Link href={`/aktuality?strana=${posts.prevPage}#col`}>
             <ChevronLeft />
           </Link>
         </Button>
-        <Button
-          asChild
-          variant={posts.hasNextPage ? "default" : "disabled"}
-          className={cn(!posts.hasNextPage && "pointer-events-none")}
-        >
+        <Button asChild disabled={!posts.hasNextPage}>
           <Link href={`/aktuality?strana=${posts.nextPage}#col`}>
             <ChevronRight />
           </Link>

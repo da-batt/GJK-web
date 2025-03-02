@@ -9,8 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-black text-white hover:bg-neutral-50 hover:text-black",
-        outline: "text-black hover:bg-neutral-50 ",
-        disabled: "border-2 border-neutral-200 text-neutral-200",
+        outline: "text-black hover:bg-neutral-50",
       },
     },
     defaultVariants: {
@@ -26,17 +25,26 @@ interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, className, variant, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button";
+  ({ asChild, className, variant, disabled, ...props }, ref) => {
+    const Component = asChild ? Slot : "button";
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, className }))}
+      <Component
         ref={ref}
+        className={cn(
+          buttonVariants({ variant }),
+          className,
+          disabled &&
+            "cursor-not-allowed text-neutral-200 border-neutral-200 bg-transparent pointer-events-none",
+        )}
+        disabled={!asChild ? disabled : undefined}
+        aria-disabled={asChild ? disabled : undefined}
         {...props}
       />
     );
   },
 );
+
 Button.displayName = "Button";
 
 export default Button;
