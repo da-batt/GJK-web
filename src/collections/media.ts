@@ -18,7 +18,7 @@ export const Media: CollectionConfig = {
     formatOptions: {
       format: "webp",
       options: {
-        lossless: true,
+        quality: 95,
       },
     },
     crop: true,

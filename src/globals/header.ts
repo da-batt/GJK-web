@@ -11,7 +11,7 @@ export const Header: GlobalConfig = {
       required: true,
       admin: {
         components: {
-          RowLabel: "@/globals/TabsRowLabel.tsx",
+          RowLabel: "@/globals/tabs-row-label.tsx",
         },
       },
       fields: [
@@ -57,7 +57,7 @@ export const Header: GlobalConfig = {
             condition: (_, siblingData) => siblingData.enableDropdown,
             initCollapsed: true,
             components: {
-              RowLabel: "@/globals/LinksRowLabel.tsx",
+              RowLabel: "@/globals/links-row-label.tsx",
             },
           },
           fields: [link({ overrides: { label: false } })],

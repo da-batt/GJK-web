@@ -6,12 +6,12 @@ import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
-import { Users } from "@/collections/Users";
-import { Media } from "@/collections/Media";
-import { Posts } from "@/collections/Posts";
-import { Pages } from "@/collections/Pages";
-import { Header } from "@/globals/Header";
-import { Footer } from "@/globals/Footer";
+import { Users } from "@/collections/users";
+import { Media } from "@/collections/media";
+import { Posts } from "@/collections/posts";
+import { Pages } from "@/collections/pages";
+import { Header } from "@/globals/header";
+import { Footer } from "@/globals/footer";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

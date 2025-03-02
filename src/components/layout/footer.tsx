@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "./logo";
+import Logo from "@/components/ui/logo";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import CMSLink from "./cms-link";
+import CMSLink from "@/components/cms-link";
 
 const Footer = async () => {
   const payload = await getPayload({ config });

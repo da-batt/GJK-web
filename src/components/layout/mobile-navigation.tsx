@@ -12,7 +12,7 @@ import {
 } from "@radix-ui/react-dialog";
 import { ArrowLeftIcon, ArrowRightIcon, MenuIcon, XIcon } from "lucide-react";
 import React, { useState } from "react";
-import CMSLink, { LinkField } from "./cms-link";
+import CMSLink, { LinkField } from "@/components/cms-link";
 
 interface MobileNavigationProps {
   data: Header;

@@ -35,7 +35,7 @@ const Navigation: React.FC<NavigationProps> = ({ data }) => {
                   <NavigationMenuTrigger className="inline-flex gap-1 font-medium items-center">
                     {tabLabel} <ChevronDown />
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="text-black z-10 absolute p-1 bg-white border-neutral-100 border rounded-lg left-[50%] -translate-x-[50%] mt-2 grid gap-1">
+                  <NavigationMenuContent className="text-black z-10 absolute p-0.5 bg-white border-neutral-100 border rounded-lg left-[50%] -translate-x-[50%] mt-2 grid gap-1">
                     {tab.links &&
                       tab.links.map((link) => {
                         if (!link.link) return;

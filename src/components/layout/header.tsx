@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Logo from "./logo";
+import Logo from "@/components/ui/logo";
 import { getPayload } from "payload";
 import config from "@payload-config";
-import Navigation from "@/components/navigation";
-import MobileNavigation from "@/components/mobile-navigation";
+import Navigation from "@/components/layout/navigation";
+import MobileNavigation from "@/components/layout/mobile-navigation";
 
 export default async function Header() {
   const payload = await getPayload({ config });
