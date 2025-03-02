@@ -9,7 +9,6 @@ import {
   LinkFeature,
   OrderedListFeature,
   ParagraphFeature,
-  RelationshipFeature,
   UnderlineFeature,
   UnorderedListFeature,
   UploadFeature,
