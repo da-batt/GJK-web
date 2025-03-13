@@ -13,6 +13,7 @@ import {
   UnorderedListFeature,
   UploadFeature,
 } from "@payloadcms/richtext-lexical";
+import { revalidatePath } from "next/cache";
 import type { CollectionConfig } from "payload";
 
 export const Pages: CollectionConfig = {
@@ -25,6 +26,9 @@ export const Pages: CollectionConfig = {
       name: "title",
       type: "text",
       required: true,
+      hooks: {
+        afterChange: [() => revalidatePath("/", "layout")],
+      },
     },
     {
       name: "description",
