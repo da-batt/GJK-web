@@ -20,18 +20,22 @@ const Footer = async () => {
               <a href="mailto:gjk@gjk.cz">gjk@gjk.cz</a>
             </li>
           </ul>
-          <h3>Identifikační údaje</h3>
-          <ul>
-            <li>IČO 61388246</li>
-            <li>IZO 061388246</li>
-            <li>REDIZO 600005691</li>
-          </ul>
-          <h3>Datová schránka</h3>
-          <ul>
-            <li>a99zagh</li>
-          </ul>
         </div>
         <div className="md:flex gap-16">
+          <div>
+            <h3>Identifikační údaje</h3>
+            <ul>
+              <li>IČO 61388246</li>
+              <li>IZO 061388246</li>
+              <li>REDIZO 600005691</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Datová schránka</h3>
+            <ul>
+              <li>a99zagh</li>
+            </ul>
+          </div>
           {footer.columns?.map((col) => (
             <div key={col.id}>
               <h3>{col.label}</h3>
