@@ -9,7 +9,7 @@ const Footer = async () => {
   const footer = await payload.findGlobal({ slug: "footer" });
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black text-white mt-auto">
       <div className="py-12 md:flex justify-between container">
         <div>
           <Logo className="w-52 mb-2 fill-white" />
