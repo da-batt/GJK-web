@@ -34,31 +34,31 @@ export default async function Page(props: {
           if (!thumbnailUrl) return <div key={post.id}>Error loading post</div>;
           return (
             <FadeIn asChild delay={0.2 + index * 0.2} key={post.id}>
-              <article className="">
-                <div className="relative mb-3">
-                  <Image
-                    src={thumbnailUrl}
-                    alt={thumbnail.alt}
-                    height={450}
-                    width={600}
-                    className="w-full h-auto rounded-xl border border-neutral-100"
-                  />
-                </div>
-                <div>
-                  <Link href={`/aktuality/${post.id}`}>
+              <Link href={`/aktuality/${post.id}`}>
+                <article className="group">
+                  <div className="relative mb-3">
+                    <Image
+                      src={thumbnailUrl}
+                      alt={thumbnail.alt}
+                      height={450}
+                      width={600}
+                      className="w-full h-auto rounded-xl border border-neutral-100 group-hover:opacity-80 transition-opacity duration-200"
+                    />
+                  </div>
+                  <div>
                     <h1 className="text-lg leading-[1.2] font-semibold mb-1">
                       {post.title}
                     </h1>
-                  </Link>
-                  <p className="text-ellipsis">
-                    {parseRichText(post.content.root)
-                      .split(" ")
-                      .slice(0, 30)
-                      .join(" ")
-                      .concat(" ...")}
-                  </p>
-                </div>
-              </article>
+                    <p className="text-ellipsis break-words hyphens-auto">
+                      {parseRichText(post.content.root)
+                        .split(" ")
+                        .slice(0, 18)
+                        .join(" ").slice(0, 200)
+                        .concat(" ...")}
+                    </p>
+                  </div>
+                </article>
+              </Link>
             </FadeIn>
           );
         })}
