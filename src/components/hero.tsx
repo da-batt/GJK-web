@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FadeIn } from "./animations";
 import { ArrowDownIcon } from "lucide-react";
+import Link from "next/link";
 
 export const Hero = () => {
   const ref = useRef(null);
@@ -64,7 +65,9 @@ export const Hero = () => {
                   <h1 className="display-1">{card.title}</h1>
                 )}
                 <FadeIn delay={2.4}>
-                  <ArrowDownIcon className="hidden sm:block sm:w-[1.5rem] lg:w-[2rem] h-auto animate-bounce" />
+                  <Link href="" scroll={false} onClick={() => document.getElementById('mise')?.scrollIntoView(true)}>
+                    <ArrowDownIcon className="hidden sm:block sm:w-[1.5rem] lg:w-[2rem] h-auto animate-bounce" />
+                  </Link>
                 </FadeIn>
               </div>
             </div>

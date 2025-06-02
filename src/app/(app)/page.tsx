@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <section className="py-24 lg:grid grid-cols-[3fr_5fr] gap-x-28 border-b-neutral-100 border-b-2">
+      <section id="mise" className="py-24 lg:grid grid-cols-[3fr_5fr] gap-x-28 border-b-neutral-100 border-b-2">
         <div className="col-start-2">
           <FadeIn whileInView viewportAmount={0.4}>
             <p className="paragraph-large mb-12 px-2 sm:px-0">
