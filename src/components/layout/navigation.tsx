@@ -11,22 +11,27 @@ import {
 import { ChevronDown } from "lucide-react";
 import React from "react";
 import CMSLink from "@/components/cms-link";
+import { usePathname } from "next/navigation";
 
 interface NavigationProps {
   data: Header;
 }
+
 const Navigation: React.FC<NavigationProps> = ({ data }) => {
+
+  const pathname = usePathname();
+
   return (
-    <NavigationMenu className="hidden lg:block list-none">
+    <NavigationMenu className="hidden lg:block list-none" key={pathname}>
       <NavigationMenuList className="flex items-center gap-8">
         {data.tabs &&
           data.tabs.map((tab) => {
             const tabLabel = tab.enableDirectLink
               ? tab.link && (
-                  <NavigationMenuLink asChild>
-                    <CMSLink label={tab.label} {...tab.link} />
-                  </NavigationMenuLink>
-                )
+                <NavigationMenuLink asChild>
+                  <CMSLink label={tab.label} {...tab.link} />
+                </NavigationMenuLink>
+              )
               : tab.label;
 
             if (tab.enableDropdown) {
