@@ -12,6 +12,7 @@ import { Posts } from "@/collections/posts";
 import { Pages } from "@/collections/pages";
 import { Header } from "@/globals/header";
 import { Footer } from "@/globals/footer";
+import { migrations } from "./migrations";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -34,6 +35,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || "",
     },
+    ...(process.env.VERCEL !== "1" && { prodMigrations: migrations })
   }),
   sharp,
   plugins: [
